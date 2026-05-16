@@ -1,0 +1,11 @@
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.Python
+.env
+.env.*
+!.env.example
+
+# Local video dataset (~1GB+); use Git LFS or external storage if you need it in-repo
+Videos/
