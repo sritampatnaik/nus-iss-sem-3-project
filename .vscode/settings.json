@@ -1,0 +1,33 @@
+{
+  "_comment": "Do not hardcode /Library/TeX/texbin unless that folder exists (BasicTeX/MacTeX). Use command name + PATH so Homebrew MiKTeX (/opt/homebrew/bin) and TeX Live also work. Install if needed: brew install --cask basictex",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ],
+      "env": {
+        "PATH": "/Library/TeX/texbin:/usr/local/texlive/2026basic/bin/universal-darwin:/usr/local/texlive/2026/bin/universal-darwin:/usr/local/texlive/2025/bin/universal-darwin:/usr/local/texlive/2024/bin/universal-darwin:/opt/homebrew/bin:/usr/local/bin:${env:PATH}"
+      }
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": ["%DOCFILE%"],
+      "env": {
+        "PATH": "/Library/TeX/texbin:/usr/local/texlive/2026basic/bin/universal-darwin:/usr/local/texlive/2026/bin/universal-darwin:/usr/local/texlive/2025/bin/universal-darwin:/usr/local/texlive/2024/bin/universal-darwin:/opt/homebrew/bin:/usr/local/bin:${env:PATH}"
+      }
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "pdflatex bibtex pdflatex x2",
+      "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "pdflatex bibtex pdflatex x2"
+}
